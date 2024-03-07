@@ -28,3 +28,39 @@ void main(){
   List<int> quicksorted = quicksort(List.from(array), 0, array.length-1);
   print('quicksort: $quicksorted');
 }
+
+
+/******************************************************QUICK SORT  using string*********************************************************** */
+
+// import 'sorting/quicksort.dart';
+
+// List<dynamic> Quicksort(List<dynamic> arr, dynamic start,dynamic end){
+//       if(start < end){
+//         dynamic pivot = partition(arr, start, end);
+//         Quicksort(arr, start, pivot-1);
+//         Quicksort(arr, pivot+1, end);
+//         }
+//         return arr;
+// }
+//         dynamic partition(List<dynamic> arr,dynamic start, dynamic end){
+//       dynamic pivot = arr[end];
+//       dynamic i = start-1;
+//       for(int j= start;j<= end-1;j++){
+//          if(arr[j].compareTo(pivot) < 0){
+//           i++;
+//           dynamic temp = arr[i];
+//           arr[i] = arr[j];
+//           arr[j] = temp;
+//          }
+
+//          }
+//          dynamic temp = arr[i+1];
+//          arr[i+1] = arr[end];
+//          arr[end] = temp;
+//          return i+1;
+//         }
+// void main(){
+//  List<dynamic> arr = ['apple','pineapple','jackfruit','strawberry'];
+//   List<dynamic> quicksorted = Quicksort(List.from(arr), 0, arr.length-1);
+//   print('quicksort: $quicksorted');
+// }
