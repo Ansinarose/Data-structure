@@ -1,4 +1,3 @@
-
 class Maxheap{
   List<int> arr = [];
   void swap(int i,int j){
@@ -44,7 +43,6 @@ class Maxheap{
   int extractmax(){
     if(arr.isEmpty){
       print('No values in the heap');
-  
     }
     int maxvalue = arr[0];
     arr.removeLast();
@@ -89,7 +87,5 @@ void main(){
   maxheap.insert(40);
   maxheap.insert(30);
 
-  maxheap.display();
-  maxheap.extractmax();
   maxheap.display();
 }

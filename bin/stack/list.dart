@@ -38,6 +38,16 @@ void reversed(){
 void clear(){
   array.clear();
 }
+
+// findout sum of stack elements
+
+int sum(){
+  int sum = 0;
+  for(int element in array){
+    sum = sum+element;
+  }
+  return sum;
+}
 @override
 String toString(){
   return array.toString();
@@ -47,6 +57,8 @@ void main(){
   stack Stack = stack();
   Stack.push(10);
   Stack.push(20);
+  int sumofstack = Stack.sum();
+  print('$sumofstack');
   print(Stack);
   print('top element: ${Stack.peak()}');
   print('size of list is ${Stack.size()}');

@@ -1,63 +1,63 @@
-
-class Maxheap{
+class Minheap{
   List<int> arr = [];
+
   void swap(int i,int j){
     int temp = arr[i];
-    arr[i] = arr[j];
+    arr[i]= arr[j];
     arr[j] = temp;
   }
   void heapifyup(int i){
-    int parent = (i -1) ~/ 2;
-    while(i > 0 && arr[i] > arr[parent]){
+    int parent = (i - 1) ~/ 2;
+    while(i >0 && arr[i] < arr[parent]){
       swap(i, parent);
-      i = parent;
+      i= parent;
       parent = i-1 ~/ 2;
     }
   }
   void heapifydown(int i){
-    int largest =i;
+    int smallest = i;
     int left = 2*i +1;
-    int right= 2*i +2;
-    if(left < arr.length && arr[left] > arr[largest]){
-       largest = left;
+    int right = 2*i+2;
+    if(left < arr.length && arr[left] < arr[smallest]){
+      smallest = left;
     }
-  if(right < arr.length && arr[right] > arr[largest]){
-    largest = right;
-  }
-  if(largest != i){
-    swap(largest, i);
-    heapifydown(largest);
-  }
+    if(right < arr.length && arr[right] < arr[smallest] ){
+      smallest = right;
+    }
+    if(smallest != i){
+      swap(i, smallest);
+      heapifydown(smallest);
+    }
   }
   void insert(int value){
-    arr.add(value); 
+    arr.add(value);
     heapifyup(arr.length-1);
   }
   void delete(int value){
     int i = arr.indexOf(value);
     if(i != -1){
-    arr[i] = arr.last;
-    arr.removeLast();
-    heapifydown(i);
-  }
-  }
-  int extractmax(){
-    if(arr.isEmpty){
-      print('No values in the heap');
-  
+      arr[i] = arr.last;
+      arr.removeLast();
+      heapifydown(i);
     }
-    int maxvalue = arr[0];
+  }
+  int extractmin(){
+    if(arr.isEmpty){
+      print('heap is empty');
+    }
+    int minvalue = arr[0];
+    arr[0] = arr.last;
     arr.removeLast();
     heapifydown(0);
-    return maxvalue;
+    return minvalue;
   }
-  int getmax(){
+  int getmin(){
     if(arr.isEmpty){
       print('heap is empty');
     }
     return arr[0];
   }
-   int parentIndex(int i){
+  int parentIndex(int i){
     if(i == -1){
       return -1;
     }
@@ -82,14 +82,12 @@ class Maxheap{
     }
 }
 void main(){
-  Maxheap maxheap = Maxheap();
-  maxheap.insert(10);
-  maxheap.insert(20);
-  maxheap.insert(50);
-  maxheap.insert(40);
-  maxheap.insert(30);
+  Minheap minheap = Minheap();
+  minheap.insert(10);
+  minheap.insert(20);
+  minheap.insert(50);
+  minheap.insert(40);
+  minheap.insert(30);
 
-  maxheap.display();
-  maxheap.extractmax();
-  maxheap.display();
+  minheap.display();
 }
