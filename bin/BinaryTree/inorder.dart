@@ -7,6 +7,9 @@ class Node{
 
 class BinaryTree{
   Node? root;
+int highest = 0; // Declare highest variable
+  int secondHighest = 0; // Declare secondHighest variable
+
 
   void insert(int value){
    root = insertvalue(root, value);
@@ -99,6 +102,18 @@ int closestvalue(Node? node,int target){
   }
   return BSTornot(node.left, min, node.value) && BSTornot(node.right, node.value, max);
  }
+ int smallestvalue(Node? node){
+  while(node!.left != null){
+     node = node.left;
+  }
+  return node.value;
+ }
+int highestvalue(Node? node){
+  while(node!.right != null){
+    node = node.right;
+  }
+  return node.value;
+}
 }
 void main(){
   BinaryTree binaryTree = BinaryTree();
@@ -128,5 +143,15 @@ void main(){
     print('The binary tree is a Binary Search Tree (BST).');
   } else {
     print('The binary tree is not a Binary Search Tree (BST).');
+  }
+  int small = binaryTree.smallestvalue(binaryTree.root);
+  if(small != null){
+    print('smallest value is : $small');
+  }else{
+    print('value not found');
+  }
+  int highest = binaryTree.highestvalue(binaryTree.root);
+  if(highest != null){
+    print('Highest value is : $highest');
   }
 }
