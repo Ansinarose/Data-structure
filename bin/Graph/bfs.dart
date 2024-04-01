@@ -31,6 +31,7 @@ class Graph{
     visited.add(vertex);
     while(queue.isNotEmpty){
       int current = queue[0];
+      
       queue.removeAt(0);
       for(int i in store[current]!){
         if(!visited.contains(i)){
@@ -51,5 +52,6 @@ void main(){
       graph.insert(40, 1, false);
        graph.insert(50, 1, true);
      graph.display();
+        print("Breadth-First Search:");
      graph.bfs(10);
 }

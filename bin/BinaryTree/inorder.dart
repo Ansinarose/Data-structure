@@ -108,12 +108,32 @@ int closestvalue(Node? node,int target){
   }
   return node.value;
  }
+ int secondsmallest(Node? node){
+  if(node!.left == null && node.right != null){
+    return smallestvalue(node.right);
+  }
+  if(node.left != null && node.left!.left == null && node.left!.right == null){
+    return node.value;
+  }
+  return secondsmallest(node.left);
+ }
 int highestvalue(Node? node){
   while(node!.right != null){
     node = node.right;
   }
   return node.value;
 }
+int secondhighestvalue(Node? node){
+  if(node!.right == null && node.left  != null ){
+    return highestvalue(node.left);
+  }
+  if(node.right != null &&  node.right!.right == null && node.right!.left == null){
+    return node.value;
+    
+  }
+  return secondhighestvalue(node.right);
+}
+
 }
 void main(){
   BinaryTree binaryTree = BinaryTree();
@@ -131,7 +151,7 @@ void main(){
  }else{
   print('Node not found');
  }
- binaryTree.delete(40);
+// binaryTree.delete(40);
  print('Inorder traversal after deleting the value is:');
  binaryTree.inOrderPrint(binaryTree.root);
 
@@ -154,4 +174,82 @@ void main(){
   if(highest != null){
     print('Highest value is : $highest');
   }
+  int SECOND = binaryTree.secondhighestvalue(binaryTree.root);
+  if(SECOND != null){
+    print('second highest value is $SECOND');
+  }
+  int secondsmall = binaryTree.secondsmallest(binaryTree.root);
+  if(secondsmall != null){
+    print('second smallest value is $secondsmall');
+  }
 }
+
+//***************************************** */ USING STRING ALSO INCLUDED SECOND HIGHEST VALUE *********************************************
+
+// class Node{
+//   dynamic value;
+//   Node? left;
+//   Node? right;
+//   Node(this.value);
+// }
+// class Binarytree{
+//   Node? root;
+//   void insert(dynamic value){
+//   root = insertvalue(root, value);
+//   }
+//   Node? insertvalue(Node? root, dynamic value){
+//     if(root == null){
+//       return Node(value);
+//     }
+//     if(value.compareTo(root.value) < 0){
+//       root.left = insertvalue(root.left, value);
+//     }
+//     else if(value.compareTo(root.value) > 0){
+//       root.right = insertvalue(root.right, value);
+//     }
+//     return root;
+//   }
+//   void printbst(Node? node){
+//     if(node != null){
+//       printbst(node.left);
+//       print(node.value);
+//       printbst(node.right);
+//     }
+//   }
+//   dynamic highest(Node? node){
+//     while(node!.right != null){
+//       node= node.right;
+//     }
+//     return node.value;
+//   }
+//   dynamic secondhighest(Node? node){
+//     if(node!.right == null && node.left != null){
+//       return highest(node.left);
+//     }
+//     if(node.right != null && 
+//        node.right!.right == null &&
+//        node.right!.left == null){
+//       return node.value;
+//     }
+//     return secondhighest(node.right);
+//     }
+//     
+// }
+
+// void main(){
+//   Binarytree binarytree = Binarytree();
+//   binarytree.insert('ANSINA');
+//    binarytree.insert('ROSE');
+//     binarytree.insert('kaina');
+//      binarytree.insert('kaina mariaym');
+//      //binarytree.highest(binarytree.root);
+//      dynamic highest = binarytree.highest(binarytree.root);
+//      if(highest != null){
+//       print('highest word is $highest');
+//      }
+//      dynamic secondhighestvalue = binarytree.secondhighest(binarytree.root);
+//      if(secondhighestvalue != null){
+//       print('second Highest word is $secondhighestvalue');
+//      }
+//   binarytree.printbst(binarytree.root);
+// }

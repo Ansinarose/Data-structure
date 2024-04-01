@@ -54,6 +54,7 @@ void main(){
   graph.insert(4, 9, false);
   graph.insert(5, 18, false);
   graph.insert(5, 14, false);
+  print("depth-First Search:");
     graph.dfs(5);
   graph.display();
 }

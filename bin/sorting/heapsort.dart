@@ -57,3 +57,45 @@ void main() {
 
   print('Sorted Array: $arr');
 }
+
+//*******************************************************Heapsort using STRINGS********************************************************************
+
+// class Heapsort{
+ 
+//   void swap( List<dynamic> heap ,int i,int j){
+//     dynamic temp = heap[i];
+//     heap[i] = heap[j];
+//     heap[j] = temp;
+//   }
+//   void heapify( List<dynamic> heap ,int n,int i){
+//      int highest = i;
+//      int left = 2*i +1;
+//      int right = 2*i +2;
+//      if(left <n && heap[left].compareTo (heap[highest]) > 0){
+//       highest = left;
+//      } if(right < n && heap[right ].compareTo( heap[highest]) >0){
+//       highest = right;
+//      }
+//      if(highest != i){
+//      swap(heap,i, highest);
+//      heapify( heap,n, highest);
+//   }
+//   }
+//   void heaps(List<dynamic> heap){
+//     int n = heap.length;
+//     for(int i = n ~/ 2 -1;i>=0;i--){
+//       heapify(heap, n, i);
+//     }
+//     for(int i=n-1; i>0;i--){
+//       swap(heap,0, i);
+//       heapify(heap,i,0);
+//     }
+//   }
+// }
+// void main(){
+//    List<dynamic> heap = ['apple','orange','jackfruit','grape'];
+//   Heapsort heapsort = Heapsort();
+ 
+//   heapsort.heaps(heap);
+//   print('$heap');
+// }
